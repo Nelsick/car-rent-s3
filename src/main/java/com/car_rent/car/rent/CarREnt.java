@@ -6,13 +6,10 @@
 
 package com.car_rent.car.rent;
 
-/**
- *
- * @author yiris
- */
 public class CarREnt {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Cliente cliente = new Cliente("18170778-K","Yiris Majluf","D");
+        System.out.println(cliente.toString());
     }
 }
