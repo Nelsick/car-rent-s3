@@ -54,4 +54,10 @@ public class Vehiculo {
     public void setCondicion(String condicion) {
         this.condicion = condicion;
     }
+
+    @Override
+    public String toString(){
+        return "Se creó el Vehículo " + getMarca() + "de patente: " + getPatente();
+
+    }
 }

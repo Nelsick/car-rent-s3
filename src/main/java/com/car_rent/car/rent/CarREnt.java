@@ -6,10 +6,19 @@
 
 package com.car_rent.car.rent;
 
+import java.sql.SQLOutput;
+
 public class CarREnt {
 
     public static void main(String[] args) {
         Cliente cliente = new Cliente("18170778-K","Yiris Majluf","D");
         System.out.println(cliente.toString());
+
+        Vehiculo vehiculo = new Vehiculo( "LYDX-79", "Changan", "New CS15", 2022, "D");
+        System.out.println(vehiculo.toString());
+
     }
+
+
+
 }
