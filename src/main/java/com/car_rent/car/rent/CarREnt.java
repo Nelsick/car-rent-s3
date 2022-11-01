@@ -6,8 +6,6 @@
 
 package com.car_rent.car.rent;
 
-import java.sql.SQLOutput;
-
 public class CarREnt {
 
     public static void main(String[] args) {
