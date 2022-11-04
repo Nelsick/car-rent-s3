@@ -53,7 +53,12 @@ public class Vehiculo {
     }
 
     public void setAnio_fabricacion(Integer anio_fabricacion) {
-        this.anio_fabricacion = anio_fabricacion;
+        if (anio_fabricacion < 2000 || anio_fabricacion > 2022) {
+            System.out.println("Año de fabricación inválido");
+        }
+        else {
+            this.anio_fabricacion = anio_fabricacion;
+        }
     }
 
     public void setCondicion(String condicion) {
