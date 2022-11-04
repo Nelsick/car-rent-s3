@@ -36,7 +36,12 @@ public class Vehiculo {
     }
 
     public void setPatente(String patente) {
-        this.patente = patente;
+        if (patente.length() != 8) {
+            System.out.println("El largo de la patente no es válido");
+        }
+        else {
+            this.patente = patente;
+        }
     }
 
     public void setMarca(String marca) {
@@ -62,4 +67,4 @@ public class Vehiculo {
 }
 
 
-/*holanda*/ 
+/*holanda*/
