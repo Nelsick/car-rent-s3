@@ -36,6 +36,7 @@ public class Vehiculo {
     }
 
     public void setPatente(String patente) {
+        patente = patente.toUpperCase();
         if (patente.length() != 8) {
             System.out.println("El largo de la patente no es válido");
         }
@@ -45,10 +46,12 @@ public class Vehiculo {
     }
 
     public void setMarca(String marca) {
+        marca = marca.toUpperCase();
         this.marca = marca;
     }
 
     public void setModelo(String modelo) {
+        modelo = modelo.toUpperCase();
         this.modelo = modelo;
     }
 
@@ -71,6 +74,15 @@ public class Vehiculo {
             this.condicion = condicion;
         }
     }
+
+    public void assign_maintenance(){
+        if (this.condicion == "D"){
+            this.condicion = "M";
+        } else {
+            System.out.println("El vehículo se encuentra arrendado");
+        }
+    }
+
 
     @Override
     public String toString(){

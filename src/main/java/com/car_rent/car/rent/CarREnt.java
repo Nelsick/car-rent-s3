@@ -12,11 +12,10 @@ public class CarREnt {
 
 
         Vehiculo vehiculo = new Vehiculo("lydxu-79", "changan", "new cs15", 2022);
-        vehiculo.setCondicion("A");
+        vehiculo.setCondicion("D");
         System.out.println(vehiculo.toString());
-
-
-
+        vehiculo.assign_maintenance();
+        System.out.println(vehiculo.toString());
 
 
     }
