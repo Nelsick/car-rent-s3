@@ -7,12 +7,12 @@ public class Vehiculo {
     private Integer anio_fabricacion;
     private String condicion;
 
-    public Vehiculo(String patente, String marca, String modelo, Integer anio_fabricacion, String condicion) {
+    public Vehiculo(String patente, String marca, String modelo, Integer anio_fabricacion) {
         this.patente = patente;
         this.marca = marca;
         this.modelo = modelo;
         this.anio_fabricacion = anio_fabricacion;
-        this.condicion = condicion;
+        this.condicion = "D";
     }
 
     public String getPatente() {
@@ -62,12 +62,19 @@ public class Vehiculo {
     }
 
     public void setCondicion(String condicion) {
-        this.condicion = condicion;
+        condicion = condicion.toUpperCase();
+
+        if (condicion != "D" && condicion != "A" && condicion != "M"){
+            System.out.println("Ingrese una condición válida");
+        }
+        else {
+            this.condicion = condicion;
+        }
     }
 
     @Override
     public String toString(){
-        return "Se creó el Vehículo " + getMarca() + " de patente: " + getPatente();
+        return "Se creó el Vehículo " + getMarca() + " de patente: " + getPatente() + " en estado: " +getCondicion();
     }
 }
 
