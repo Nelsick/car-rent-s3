@@ -57,6 +57,6 @@ public class Vehiculo {
 
     @Override
     public String toString(){
-        return "Se creó el Vehículo " + getMarca() + " de patente: " + getPatente();
+        return "Vehículo " + getMarca() + " de patente: " + getPatente() + " en estado: " + getCondicion();
     }
 }

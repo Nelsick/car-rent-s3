@@ -1,6 +1,7 @@
 package com.car_rent.car.rent;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Arriendo {
     private Integer num_arr;
@@ -8,6 +9,7 @@ public class Arriendo {
     private  Cliente cliente;
     private LocalDate fec_arr;
     private Integer dias_arr;
+    private Integer precio_arriendo;
 
     public Arriendo(Integer num_arr, Vehiculo vehiculo, Cliente cliente, LocalDate fec_arr, Integer dias_arr) {
         this.num_arr = num_arr;
@@ -63,6 +65,54 @@ public class Arriendo {
         }else{
             return false;
         }
+    }
+
+    public boolean taken_rent(){
+        if(check_rent()){
+            this.vehiculo.setCondicion("A");
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public int rent_amount(){
+        Scanner myObj = new Scanner(System.in);
+        try{
+            System.out.println("Ingrese el valor de arriendo: ");
+            int precio = myObj.nextInt();
+            if(precio < 5000){
+                System.out.println("Valor de arriendo no válido - Favor ingresar nuevamente");
+                rent_amount();
+            }
+            int monto = this.dias_arr * precio;
+            this.precio_arriendo = precio;
+            return monto;
+        }
+        catch (Exception e){
+            System.out.println("Solo se admiten números");
+            return -1;
+        }
+    }
+
+    private Integer mount(){
+        return this.precio_arriendo*dias_arr;
+    }
+
+    public String rent_ticket(){
+        String ticket = "           TICKET ARRIENDO DE VEHÍCULO \n" +
+                        "               NÚMERO ARRIENDO:"+ num_arr+"\n"+
+                        "               VEHÍCULO       : "+ vehiculo.getPatente()+" "+vehiculo.getMarca()+" "+vehiculo.getModelo()+"\n"+
+                        "               PRECIO DIARIO  :"+ this.precio_arriendo+"\n"+
+                        "\n"+
+                        "FECHA                CLIENTE                DÍAS            A PAGAR \n"+
+                        "------------------------------------------------------------------------ \n"+
+                        getFec_arr()+"  | "+ getCliente().getCedula() +" / "+ getCliente().getNombre()+" |      "+getDias_arr()+"        |    "+mount()+"\n"+
+                        "------------------------------------------------------------------------ \n" +
+                        "                                                      __________________ \n" +
+                        "                                                         FIRMA CLIENTE";
+
+        return  ticket;
     }
 
     @Override
