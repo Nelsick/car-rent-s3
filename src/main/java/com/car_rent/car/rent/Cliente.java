@@ -29,21 +29,26 @@ public class Cliente {
 
     public void setCedula(String cedula) {
         cedula = cedula.toUpperCase();
-        String dv = String.valueOf(cedula.charAt(9));
-        String valid_dv = "0123456789K";
+        try{
+            if(cedula.length() != 10){
+                System.out.println("El largo de la cedula no es válido");
+            }
+            else if(cedula.charAt(8) != '-'){
+                System.out.println("El RUT debe ingresarse con guión");
+            }
 
-        if(cedula.length() != 10){
-            System.out.println("El largo de la cedula no es válido");
+            String dv = String.valueOf(cedula.charAt(9));
+            String valid_dv = "0123456789K";
+            if(!valid_dv.contains(dv)){
+                System.out.println("El digito verificador no es correcto");
+            }
+            else{
+                this.cedula = cedula;
+            }
+        }catch (Exception e){
+            System.out.println("RUT ingresado no válido");
         }
-        else if(cedula.charAt(8) != '-'){
-            System.out.println("El RUT debe ingresarse con guión");
-        }
-        else if(!valid_dv.contains(dv)){
-            System.out.println("El digito verificador no es correcto");
-        }
-        else{
-            this.cedula = cedula;
-        }
+
     }
 
     public void setNombre(String nombre) {
