@@ -10,7 +10,7 @@ public class CarREnt {
 
     public static void main(String[] args) {
         Cliente cliente = new Cliente("18170778-K","Yiris Majluf");
-        Vehiculo vehiculo = new Vehiculo("LYDX-79","CHANGAN","NEW CS15",2022,"D");
+        Vehiculo vehiculo = new Vehiculo("LYDX-79","CHANGAN","NEW CS15",2022);
         Arriendo arriendo = new Arriendo(1,vehiculo,cliente, LocalDate.now(),3);
         System.out.println(vehiculo.toString());
         System.out.println(arriendo.taken_rent());
